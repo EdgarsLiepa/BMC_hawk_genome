@@ -1,177 +1,123 @@
+# ---
+# --- About: 
+# ---       Create genomics DB from gosh hawk mapped reads
+# ---
+# --- In: 
+# ---        mapped reads - __.genome.raw.snps.indels.g.vcf
+# ---           
+# ---      
+# --- Out: 
+# ---       gatk genomics Data Base - gatk.database_vanagi_ALL
+# ---           
+# ---       
+# --- Author: Edgars Liepa edgars.liepa@biomed.lu.lv
+# --- Date: 19.10.22
+
+
 #!/bin/bash
-#PBS -N GenomicsDBI_vanagi
-#PBS -l procs=16
-#PBS -l walltime=200:59:59
+#PBS -N makeVanagiDB_ALL
+#PBS -l nodes=1:ppn=32,mem=180g
+#PBS -l walltime=335:59:59
 #PBS -A bmc_pl_bior_covid
 #PBS -q long
 #PBS -j oe
  
-module load conda
+date
 
 #Mape, kur notiks visas starpdarbiibas
-PATH='/home_beegfs/edgars01/Ineta/WGS'
+FILEPATH='/home_beegfs/edgars01/Ineta/WGS'
 #Temporary dir
 TMP='/home_beegfs/groups/bmc/tmp/ditagu'
  
 export _JAVA_OPTIONS=-Djava.io.tmpdir=/home_beegfs/edgars01/Ineta/WGS/tmp
-/home_beegfs/edgars01/tools/gatk-4.2.6.1/gatk --java-options "-Xms26G -XX:ParallelGCThreads=1" GenomicsDBImport \
--V ${PATH}/raw_reads/starpfaili/V300082518_L01_89.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V300082518_L01_90.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V300082518_L01_91.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V300082518_L01_92.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V300082518_L01_93.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V300082518_L01_94.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V300082518_L01_95.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V300082518_L01_96.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V300082518_L02_81.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V300082518_L02_82.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V300082518_L02_83.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V300082518_L02_84.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V300082518_L02_85.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V300082518_L02_86.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V300082518_L02_87.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V300082518_L02_88.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L01_121.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L01_122.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L01_123.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L01_124.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L01_125.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L01_126.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L01_127.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L01_128.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L02_65.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L02_66.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L02_67.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L02_68.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L02_69.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L02_70.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L02_71.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L03_100.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L03_101.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L03_102.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L03_103.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L03_104.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L03_97.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L03_98.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L03_999.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L03_99.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L04_73.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L04_74.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L04_75.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L04_76.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L04_77.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L04_78.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L04_79.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018459_L04_80.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018543_L03_57.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018543_L03_58.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018543_L03_59.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018543_L03_61.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018543_L03_62.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018543_L03_63.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018543_L03_64.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018543_L04_41.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018543_L04_42.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018543_L04_43.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018543_L04_44.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018543_L04_45.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018543_L04_46.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018543_L04_47.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350018543_L04_48.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023344_L01_1.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023344_L01_2.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023344_L01_3.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023344_L01_4.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L01_81.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L01_82.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L01_83.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L01_84.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L01_85.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L01_86.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L01_87.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L01_88.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L02_89.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L02_90.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L02_91.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L02_92.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L02_93.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L02_94.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L02_95.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L02_96.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L03_57.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L03_58.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L03_59.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L03_60.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L03_61.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L03_62.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L03_63.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L03_64.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L04_41.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L04_42.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L04_43.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L04_44.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L04_45.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L04_47.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023369_L04_48.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L01_1.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L01_2.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L01_3.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L01_4.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L02_13.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L02_14.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L02_15.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L02_16.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L03_57.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L03_58.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L03_59.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L03_60.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L03_61.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L03_62.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L04_41.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L04_42.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L04_43.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L04_44.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L04_45.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L04_46.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L04_47.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023385_L04_48.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L01_89.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L01_90.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L01_91.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L01_92.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L01_93.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L01_94.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L01_95.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L01_96.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L02_100.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L02_101.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L02_102.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L02_103.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L02_104.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L02_97.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L02_98.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L02_999.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L02_99.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L03_81.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L03_82.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L03_83.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L03_84.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L03_85.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L03_86.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L03_87.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L03_88.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L04_121.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L04_122.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L04_123.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L04_124.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L04_125.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L04_126.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L04_127.genome.raw.snps.indels.g.vcf \
--V ${PATH}/raw_reads/starpfaili/V350023490_L04_128.genome.raw.snps.indels.g.vcf \
---genomicsdb-workspace-path ${PATH}/gatk.database_vanagi \
+/home_beegfs/edgars01/tools/gatk-4.2.6.1/gatk --java-options "-Xms64G -Xmx170g -XX:ParallelGCThreads=32" GenomicsDBImport \
+-V ${FILEPATH}/raw_reads/starpfaili/V300082518_L01_ACG1.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V300082518_L01_ACG2.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V300082518_L01_ACG3.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V300082518_L01_ACG4.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V300082518_L01_ACG5.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V300082518_L02_AV13_1.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V300082518_L02_AV13_2.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V300082518_L02_AV13_3.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V300082518_L02_F75_2.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V300082518_L02_F78.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018459_L01_ACG22.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018459_L01_ACG23.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018459_L01_ACG24.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018459_L01_ACG25.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018459_L02_ACG10.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018459_L02_ACG11.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018459_L02_ACG12.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018459_L02_ACG13.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018459_L03_ACG18.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018459_L03_ACG19.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018459_L03_ACG20.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018459_L03_ACG21.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018459_L04_ACG14.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018459_L04_ACG15.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018459_L04_ACG17.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018543_L03_AV-5.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018543_L03_AV-6.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018543_L03_ZL-17.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018543_L04_ACG6.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018543_L04_ACG7.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018543_L04_ACG8.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350018543_L04_ACG9.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023344_L01_ACG-WGS.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023369_L01_ACG26.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023369_L01_ACG27.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023369_L01_ACG28.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023369_L01_ACG29.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023369_L02_ACG30.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023369_L02_ACG31.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023369_L02_ACG32.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023369_L02_ACG33.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023369_L03_ACG46.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023369_L03_ACG47.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023369_L03_ACG48.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023369_L03_ACG49.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023369_L04_ACG42.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023369_L04_ACG43.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023369_L04_ACG45.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023385_L01_ACG34.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023385_L01_ACG35.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023385_L01_ACG36.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023385_L01_ACG37.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023385_L02_ACG38.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023385_L02_ACG39.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023385_L02_ACG40.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023385_L02_ACG41.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023385_L03_ACG54.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023385_L03_ACG55.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023385_L03_ACG56.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023385_L03_ACG57.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023385_L04_ACG50.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023385_L04_ACG51.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023385_L04_ACG52.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023385_L04_ACG53.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023490_L01_ACG71.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023490_L01_ACG72.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023490_L01_ACG73.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023490_L01_ACG74.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023490_L02_ACG59.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023490_L02_ACG60.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023490_L02_ACG61.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023490_L02_ACG62.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023490_L03_ACG67.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023490_L03_ACG68.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023490_L03_ACG69.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023490_L03_ACG70.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023490_L04_ACG63.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023490_L04_ACG64.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023490_L04_ACG65.genome.raw.snps.indels.g.vcf \
+-V ${FILEPATH}/raw_reads/starpfaili/V350023490_L04_ACG66.genome.raw.snps.indels.g.vcf \
+--genomicsdb-workspace-path ${FILEPATH}/gatk.database_vanagi_ALL \
 --tmp-dir ${TMP} \
--L ${PATH}/intervals.list \
---reader-threads 16;
+-L ${FILEPATH}/intervals.list \
+--reader-threads 32;
  
-chmod u=rwx,g=rx,o=r ${PATH}/gatk.database_vanagi;
+chmod u=rwx,g=rx,o=r ${FILEPATH}/gatk.database_vanagi_ALL;
+
+date
+
 
