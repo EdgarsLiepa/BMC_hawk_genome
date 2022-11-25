@@ -1,6 +1,6 @@
 # ---
 # --- About: 
-# ---       Create genomics DB from gosh hawk mapped reads
+# ---       Create genomics DB from gosh hawk mapped read VCF files
 # ---
 # --- In: 
 # ---        mapped reads - __.genome.raw.snps.indels.g.vcf

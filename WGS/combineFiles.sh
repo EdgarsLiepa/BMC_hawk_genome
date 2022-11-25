@@ -1,0 +1,410 @@
+#!/bin/bash
+#PBS -N GenomicsDBI_vanagi
+#PBS -l procs=16
+#PBS -l walltime=4:59:59
+#PBS -A bmc_pl_bior_covid
+#PBS -q long
+#PBS -j oe
+
+FILEPATH="/home_beegfs/edgars01/Ineta/WGS/raw_reads"
+
+cp ${FILEPATH}/V300082518_L02_81_1.fq.gz ${FILEPATH}/starpfaili/combined/V300082518_L02_AV13_1_1.fq.gz
+cp ${FILEPATH}/V300082518_L02_81_2.fq.gz ${FILEPATH}/starpfaili/combined/V300082518_L02_AV13_1_2.fq.gz
+
+cp ${FILEPATH}/V300082518_L02_82_1.fq.gz ${FILEPATH}/starpfaili/combined/V300082518_L02_AV13_2_1.fq.gz
+cp ${FILEPATH}/V300082518_L02_82_2.fq.gz ${FILEPATH}/starpfaili/combined/V300082518_L02_AV13_2_2.fq.gz	
+
+cp ${FILEPATH}/V300082518_L02_83_1.fq.gz ${FILEPATH}/starpfaili/combined/V300082518_L02_AV13_3_1.fq.gz	
+cp ${FILEPATH}/V300082518_L02_83_2.fq.gz ${FILEPATH}/starpfaili/combined/V300082518_L02_AV13_3_2.fq.gz
+
+
+cp ${FILEPATH}/V300082518_L02_84_1.fq.gz ${FILEPATH}/starpfaili/combined/V300082518_L02_F75_1_1.fq.gz	
+cp ${FILEPATH}/V300082518_L02_84_2.fq.gz ${FILEPATH}/starpfaili/combined/V300082518_L02_F75_1_2.fq.gz
+
+cp ${FILEPATH}/V300082518_L02_87_1.fq.gz ${FILEPATH}/starpfaili/combined/V300082518_L02_F58_1.fq.gz	
+cp ${FILEPATH}/V300082518_L02_87_2.fq.gz ${FILEPATH}/starpfaili/combined/V300082518_L02_F58_2.fq.gz
+
+cp ${FILEPATH}/V300082518_L02_88_1.fq.gz ${FILEPATH}/starpfaili/combined/V300082518_L02_F78_1.fq.gz	
+cp ${FILEPATH}/V300082518_L02_88_2.fq.gz ${FILEPATH}/starpfaili/combined/V300082518_L02_F78_2.fq.gz
+
+cp ${FILEPATH}/V300082518_L01_95_1.fq.gz ${FILEPATH}/starpfaili/combined/V300082518_L01_ACG4_1.fq.gz	
+cp ${FILEPATH}/V300082518_L01_95_2.fq.gz ${FILEPATH}/starpfaili/combined/V300082518_L01_ACG4_2.fq.gz
+
+cp ${FILEPATH}/V300082518_L01_96_1.fq.gz ${FILEPATH}/starpfaili/combined/V300082518_L01_ACG5_1.fq.gz	
+cp ${FILEPATH}/V300082518_L01_96_2.fq.gz ${FILEPATH}/starpfaili/combined/V300082518_L01_ACG5_2.fq.gz
+
+
+cat ${FILEPATH}/V300082518_L02_85_1.fq.gz ${FILEPATH}/V300082518_L02_86_1.fq.gz > ${FILEPATH}/starpfaili/combined/V300082518_L02_F75_2_1.fq.gz	
+cat ${FILEPATH}/V300082518_L02_85_2.fq.gz ${FILEPATH}/V300082518_L02_86_2.fq.gz > ${FILEPATH}/starpfaili/combined/V300082518_L02_F75_2_2.fq.gz
+
+
+
+cat ${FILEPATH}/V300082518_L01_89_1.fq.gz ${FILEPATH}/V300082518_L01_90_1.fq.gz > ${FILEPATH}/starpfaili/combined/V300082518_L01_ACG1_1.fq.gz	
+cat ${FILEPATH}/V300082518_L01_89_2.fq.gz ${FILEPATH}/V300082518_L01_90_2.fq.gz > ${FILEPATH}/starpfaili/combined/V300082518_L01_ACG1_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V300082518_L01_91_1.fq.gz ${FILEPATH}/V300082518_L01_92_1.fq.gz > ${FILEPATH}/starpfaili/combined/V300082518_L01_ACG2_1.fq.gz	
+cat ${FILEPATH}/V300082518_L01_91_2.fq.gz ${FILEPATH}/V300082518_L01_92_2.fq.gz > ${FILEPATH}/starpfaili/combined/V300082518_L01_ACG2_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V300082518_L01_93_1.fq.gz ${FILEPATH}/V300082518_L01_94_1.fq.gz > ${FILEPATH}/starpfaili/combined/V300082518_L01_ACG3_1.fq.gz	
+cat ${FILEPATH}/V300082518_L01_93_2.fq.gz ${FILEPATH}/V300082518_L01_94_2.fq.gz > ${FILEPATH}/starpfaili/combined/V300082518_L01_ACG3_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350018543_L04_41_1.fq.gz ${FILEPATH}/V350018543_L04_42_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018543_L04_ACG6_1.fq.gz	
+cat ${FILEPATH}/V350018543_L04_41_2.fq.gz ${FILEPATH}/V350018543_L04_42_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018543_L04_ACG6_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018543_L04_43_1.fq.gz ${FILEPATH}/V350018543_L04_44_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018543_L04_ACG7_1.fq.gz	
+cat ${FILEPATH}/V350018543_L04_43_2.fq.gz ${FILEPATH}/V350018543_L04_44_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018543_L04_ACG7_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018543_L04_45_1.fq.gz ${FILEPATH}/V350018543_L04_46_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018543_L04_ACG8_1.fq.gz	
+cat ${FILEPATH}/V350018543_L04_45_2.fq.gz ${FILEPATH}/V350018543_L04_46_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018543_L04_ACG8_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018543_L04_47_1.fq.gz ${FILEPATH}/V350018543_L04_48_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018543_L04_ACG9_1.fq.gz	
+cat ${FILEPATH}/V350018543_L04_47_2.fq.gz ${FILEPATH}/V350018543_L04_48_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018543_L04_ACG9_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018543_L03_57_1.fq.gz ${FILEPATH}/V350018543_L03_58_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018543_L03_AV-5_1.fq.gz	
+cat ${FILEPATH}/V350018543_L03_57_2.fq.gz ${FILEPATH}/V350018543_L03_58_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018543_L03_AV-5_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018543_L03_59_1.fq.gz ${FILEPATH}/V350018543_L03_60_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018543_L03_AV-6_1.fq.gz	
+cat ${FILEPATH}/V350018543_L03_59_2.fq.gz ${FILEPATH}/V350018543_L03_60_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018543_L03_AV-6_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018543_L03_61_1.fq.gz ${FILEPATH}/V350018543_L03_62_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018543_L03_ZE-6_1.fq.gz	
+cat ${FILEPATH}/V350018543_L03_61_2.fq.gz ${FILEPATH}/V350018543_L03_62_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018543_L03_ZE-6_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018543_L03_63_1.fq.gz ${FILEPATH}/V350018543_L03_64_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018543_L03_ZL-17_1.fq.gz	
+cat ${FILEPATH}/V350018543_L03_63_2.fq.gz ${FILEPATH}/V350018543_L03_64_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018543_L03_ZL-17_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018459_L03_101_1.fq.gz ${FILEPATH}/V350018459_L03_102_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L03_ACG20_1.fq.gz	
+cat ${FILEPATH}/V350018459_L03_101_2.fq.gz ${FILEPATH}/V350018459_L03_102_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L03_ACG20_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018459_L03_103_1.fq.gz ${FILEPATH}/V350018459_L03_104_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L03_ACG21_1.fq.gz	
+cat ${FILEPATH}/V350018459_L03_103_2.fq.gz ${FILEPATH}/V350018459_L03_104_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L03_ACG21_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018459_L01_121_1.fq.gz ${FILEPATH}/V350018459_L01_122_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L01_ACG22_1.fq.gz	
+cat ${FILEPATH}/V350018459_L01_121_2.fq.gz ${FILEPATH}/V350018459_L01_122_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L01_ACG22_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018459_L01_123_1.fq.gz ${FILEPATH}/V350018459_L01_124_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L01_ACG23_1.fq.gz	
+cat ${FILEPATH}/V350018459_L01_123_2.fq.gz ${FILEPATH}/V350018459_L01_124_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L01_ACG23_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018459_L01_125_1.fq.gz ${FILEPATH}/V350018459_L01_126_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L01_ACG24_1.fq.gz	
+cat ${FILEPATH}/V350018459_L01_125_2.fq.gz ${FILEPATH}/V350018459_L01_126_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L01_ACG24_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018459_L01_127_1.fq.gz ${FILEPATH}/V350018459_L01_128_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L01_ACG25_1.fq.gz	
+cat ${FILEPATH}/V350018459_L01_127_2.fq.gz ${FILEPATH}/V350018459_L01_128_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L01_ACG25_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018459_L02_65_1.fq.gz ${FILEPATH}/V350018459_L02_66_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L02_ACG10_1.fq.gz	
+cat ${FILEPATH}/V350018459_L02_65_2.fq.gz ${FILEPATH}/V350018459_L02_66_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L02_ACG10_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018459_L02_67_1.fq.gz ${FILEPATH}/V350018459_L02_68_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L02_ACG11_1.fq.gz	
+cat ${FILEPATH}/V350018459_L02_67_2.fq.gz ${FILEPATH}/V350018459_L02_68_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L02_ACG11_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018459_L02_69_1.fq.gz ${FILEPATH}/V350018459_L02_70_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L02_ACG12_1.fq.gz	
+cat ${FILEPATH}/V350018459_L02_69_2.fq.gz ${FILEPATH}/V350018459_L02_70_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L02_ACG12_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018459_L02_71_1.fq.gz ${FILEPATH}/V350018459_L02_72_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L02_ACG13_1.fq.gz	
+cat ${FILEPATH}/V350018459_L02_71_2.fq.gz ${FILEPATH}/V350018459_L02_72_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L02_ACG13_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018459_L04_73_1.fq.gz ${FILEPATH}/V350018459_L04_74_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L04_ACG14_1.fq.gz	
+cat ${FILEPATH}/V350018459_L04_73_2.fq.gz ${FILEPATH}/V350018459_L04_74_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L04_ACG14_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018459_L04_75_1.fq.gz ${FILEPATH}/V350018459_L04_76_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L04_ACG15_1.fq.gz	
+cat ${FILEPATH}/V350018459_L04_75_2.fq.gz ${FILEPATH}/V350018459_L04_76_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L04_ACG15_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018459_L04_77_1.fq.gz ${FILEPATH}/V350018459_L04_78_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L04_ACG16_1.fq.gz	
+cat ${FILEPATH}/V350018459_L04_77_2.fq.gz ${FILEPATH}/V350018459_L04_78_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L04_ACG16_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018459_L04_79_1.fq.gz ${FILEPATH}/V350018459_L04_80_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L04_ACG17_1.fq.gz	
+cat ${FILEPATH}/V350018459_L04_79_2.fq.gz ${FILEPATH}/V350018459_L04_80_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L04_ACG17_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018459_L03_97_1.fq.gz ${FILEPATH}/V350018459_L03_98_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L03_ACG18_1.fq.gz	
+cat ${FILEPATH}/V350018459_L03_97_2.fq.gz ${FILEPATH}/V350018459_L03_98_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L03_ACG18_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350018459_L03_99_1.fq.gz ${FILEPATH}/V350018459_L03_100_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L03_ACG19_1.fq.gz	
+cat ${FILEPATH}/V350018459_L03_99_2.fq.gz ${FILEPATH}/V350018459_L03_100_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350018459_L03_ACG19_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350023369_L04_41_1.fq.gz ${FILEPATH}/V350023369_L04_42_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L04_ACG42_1.fq.gz	
+cat ${FILEPATH}/V350023369_L04_41_2.fq.gz ${FILEPATH}/V350023369_L04_42_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L04_ACG42_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350023369_L04_43_1.fq.gz ${FILEPATH}/V350023369_L04_44_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L04_ACG43_1.fq.gz	
+cat ${FILEPATH}/V350023369_L04_43_2.fq.gz ${FILEPATH}/V350023369_L04_44_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L04_ACG43_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350023369_L04_45_1.fq.gz ${FILEPATH}/V350023369_L04_46_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L04_ACG44_1.fq.gz	
+cat ${FILEPATH}/V350023369_L04_45_2.fq.gz ${FILEPATH}/V350023369_L04_46_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L04_ACG44_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350023369_L04_47_1.fq.gz ${FILEPATH}/V350023369_L04_48_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L04_ACG45_1.fq.gz	
+cat ${FILEPATH}/V350023369_L04_47_2.fq.gz ${FILEPATH}/V350023369_L04_48_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L04_ACG45_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350023369_L03_57_1.fq.gz ${FILEPATH}/V350023369_L03_58_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L03_ACG46_1.fq.gz	
+cat ${FILEPATH}/V350023369_L03_57_2.fq.gz ${FILEPATH}/V350023369_L03_58_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L03_ACG46_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350023369_L03_59_1.fq.gz ${FILEPATH}/V350023369_L03_60_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L03_ACG47_1.fq.gz	
+cat ${FILEPATH}/V350023369_L03_59_2.fq.gz ${FILEPATH}/V350023369_L03_60_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L03_ACG47_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350023369_L03_61_1.fq.gz ${FILEPATH}/V350023369_L03_62_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L03_ACG48_1.fq.gz	
+cat ${FILEPATH}/V350023369_L03_61_2.fq.gz ${FILEPATH}/V350023369_L03_62_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L03_ACG48_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350023369_L03_63_1.fq.gz ${FILEPATH}/V350023369_L03_64_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L03_ACG49_1.fq.gz	
+cat ${FILEPATH}/V350023369_L03_63_2.fq.gz ${FILEPATH}/V350023369_L03_64_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L03_ACG49_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350023369_L01_81_1.fq.gz ${FILEPATH}/V350023369_L01_82_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L01_ACG26_1.fq.gz	
+cat ${FILEPATH}/V350023369_L01_81_2.fq.gz ${FILEPATH}/V350023369_L01_82_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L01_ACG26_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350023369_L01_83_1.fq.gz ${FILEPATH}/V350023369_L01_84_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L01_ACG27_1.fq.gz	
+cat ${FILEPATH}/V350023369_L01_83_2.fq.gz ${FILEPATH}/V350023369_L01_84_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L01_ACG27_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023369_L01_85_1.fq.gz ${FILEPATH}/V350023369_L01_86_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L01_ACG28_1.fq.gz	
+cat ${FILEPATH}/V350023369_L01_85_2.fq.gz ${FILEPATH}/V350023369_L01_86_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L01_ACG28_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350023369_L01_87_1.fq.gz ${FILEPATH}/V350023369_L01_88_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L01_ACG29_1.fq.gz	
+cat ${FILEPATH}/V350023369_L01_87_2.fq.gz ${FILEPATH}/V350023369_L01_88_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L01_ACG29_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350023369_L02_89_1.fq.gz ${FILEPATH}/V350023369_L02_90_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L02_ACG30_1.fq.gz	
+cat ${FILEPATH}/V350023369_L02_89_2.fq.gz ${FILEPATH}/V350023369_L02_90_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L02_ACG30_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350023369_L02_91_1.fq.gz ${FILEPATH}/V350023369_L02_92_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L02_ACG31_1.fq.gz	
+cat ${FILEPATH}/V350023369_L02_91_2.fq.gz ${FILEPATH}/V350023369_L02_92_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L02_ACG31_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350023369_L02_93_1.fq.gz ${FILEPATH}/V350023369_L02_94_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L02_ACG32_1.fq.gz	
+cat ${FILEPATH}/V350023369_L02_93_2.fq.gz ${FILEPATH}/V350023369_L02_94_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L02_ACG32_2.fq.gz	
+
+
+			
+cat ${FILEPATH}/V350023369_L02_95_1.fq.gz ${FILEPATH}/V350023369_L02_96_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L02_ACG33_1.fq.gz	
+cat ${FILEPATH}/V350023369_L02_95_2.fq.gz ${FILEPATH}/V350023369_L02_96_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023369_L02_ACG33_2.fq.gz	
+
+
+
+
+cp ${FILEPATH}/V350023385_L01_1_1.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L01_ACG34_1.fq.gz	
+cp ${FILEPATH}/V350023385_L01_1_2.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L01_ACG34_2.fq.gz
+
+
+cp ${FILEPATH}/V350023385_L01_2_1.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L01_ACG35_1.fq.gz	
+cp ${FILEPATH}/V350023385_L01_2_2.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L01_ACG35_2.fq.gz
+
+
+cp ${FILEPATH}/V350023385_L01_3_1.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L01_ACG36_1.fq.gz	
+cp ${FILEPATH}/V350023385_L01_3_2.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L01_ACG36_2.fq.gz
+
+
+cp ${FILEPATH}/V350023385_L01_4_1.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L01_ACG37_1.fq.gz	
+cp ${FILEPATH}/V350023385_L01_4_2.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L01_ACG37_2.fq.gz
+
+
+cp ${FILEPATH}/V350023385_L02_13_1.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L02_ACG38_1.fq.gz	
+cp ${FILEPATH}/V350023385_L02_13_2.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L02_ACG38_2.fq.gz
+
+
+cp ${FILEPATH}/V350023385_L02_14_1.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L02_ACG39_1.fq.gz	
+cp ${FILEPATH}/V350023385_L02_14_2.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L02_ACG39_2.fq.gz
+
+
+cp ${FILEPATH}/V350023385_L02_15_1.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L02_ACG40_1.fq.gz	
+cp ${FILEPATH}/V350023385_L02_15_2.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L02_ACG40_2.fq.gz
+
+
+cp ${FILEPATH}/V350023385_L02_16_1.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L02_ACG41_1.fq.gz	
+cp ${FILEPATH}/V350023385_L02_16_2.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L02_ACG41_2.fq.gz
+
+
+cp ${FILEPATH}/V350023385_L03_57_1.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L03_ACG54_1.fq.gz	
+cp ${FILEPATH}/V350023385_L03_57_2.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L03_ACG54_2.fq.gz
+
+
+cp ${FILEPATH}/V350023385_L03_58_1.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L03_ACG55_1.fq.gz	
+cp ${FILEPATH}/V350023385_L03_58_2.fq.gz ${FILEPATH}/starpfaili/combined/V350023385_L03_ACG55_2.fq.gz
+
+
+cat ${FILEPATH}/V350023385_L04_41_1.fq.gz ${FILEPATH}/V350023385_L04_42_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023385_L04_ACG50_1.fq.gz	
+cat ${FILEPATH}/V350023385_L04_41_2.fq.gz ${FILEPATH}/V350023385_L04_42_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023385_L04_ACG50_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023385_L04_43_1.fq.gz ${FILEPATH}/V350023385_L04_44_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023385_L04_ACG51_1.fq.gz	
+cat ${FILEPATH}/V350023385_L04_43_2.fq.gz ${FILEPATH}/V350023385_L04_44_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023385_L04_ACG51_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023385_L04_45_1.fq.gz ${FILEPATH}/V350023385_L04_46_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023385_L04_ACG52_1.fq.gz	
+cat ${FILEPATH}/V350023385_L04_45_2.fq.gz ${FILEPATH}/V350023385_L04_46_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023385_L04_ACG52_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023385_L04_47_1.fq.gz ${FILEPATH}/V350023385_L04_48_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023385_L04_ACG53_1.fq.gz	
+cat ${FILEPATH}/V350023385_L04_47_2.fq.gz ${FILEPATH}/V350023385_L04_48_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023385_L04_ACG53_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023385_L03_59_1.fq.gz ${FILEPATH}/V350023385_L03_60_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023385_L03_ACG56_1.fq.gz	
+cat ${FILEPATH}/V350023385_L03_59_2.fq.gz ${FILEPATH}/V350023385_L03_60_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023385_L03_ACG56_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023385_L03_61_1.fq.gz ${FILEPATH}/V350023385_L03_62_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023385_L03_ACG57_1.fq.gz	
+cat ${FILEPATH}/V350023385_L03_61_2.fq.gz ${FILEPATH}/V350023385_L03_62_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023385_L03_ACG57_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023385_L03_63_1.fq.gz ${FILEPATH}/V350023385_L03_64_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023385_L03_ACG58_1.fq.gz	
+cat ${FILEPATH}/V350023385_L03_63_2.fq.gz ${FILEPATH}/V350023385_L03_64_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023385_L03_ACG58_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023490_L02_101_1.fq.gz ${FILEPATH}/V350023490_L02_102_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L02_ACG61_1.fq.gz	
+cat ${FILEPATH}/V350023490_L02_101_2.fq.gz ${FILEPATH}/V350023490_L02_102_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L02_ACG61_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023490_L02_103_1.fq.gz ${FILEPATH}/V350023490_L02_104_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L02_ACG62_1.fq.gz	
+cat ${FILEPATH}/V350023490_L02_103_2.fq.gz ${FILEPATH}/V350023490_L02_104_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L02_ACG62_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023490_L04_121_1.fq.gz ${FILEPATH}/V350023490_L04_122_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L04_ACG63_1.fq.gz	
+cat ${FILEPATH}/V350023490_L04_121_2.fq.gz ${FILEPATH}/V350023490_L04_122_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L04_ACG63_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023490_L04_123_1.fq.gz ${FILEPATH}/V350023490_L04_124_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L04_ACG64_1.fq.gz	
+cat ${FILEPATH}/V350023490_L04_123_2.fq.gz ${FILEPATH}/V350023490_L04_124_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L04_ACG64_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023490_L04_125_1.fq.gz ${FILEPATH}/V350023490_L04_126_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L04_ACG65_1.fq.gz	
+cat ${FILEPATH}/V350023490_L04_125_2.fq.gz ${FILEPATH}/V350023490_L04_126_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L04_ACG65_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023490_L04_127_1.fq.gz ${FILEPATH}/V350023490_L04_128_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L04_ACG66_1.fq.gz	
+cat ${FILEPATH}/V350023490_L04_127_2.fq.gz ${FILEPATH}/V350023490_L04_128_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L04_ACG66_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023490_L03_81_1.fq.gz ${FILEPATH}/V350023490_L03_82_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L03_ACG67_1.fq.gz	
+cat ${FILEPATH}/V350023490_L03_81_2.fq.gz ${FILEPATH}/V350023490_L03_82_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L03_ACG67_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023490_L03_83_1.fq.gz ${FILEPATH}/V350023490_L03_84_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L03_ACG68_1.fq.gz	
+cat ${FILEPATH}/V350023490_L03_83_2.fq.gz ${FILEPATH}/V350023490_L03_84_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L03_ACG68_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023490_L03_85_1.fq.gz ${FILEPATH}/V350023490_L03_86_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L03_ACG69_1.fq.gz	
+cat ${FILEPATH}/V350023490_L03_85_2.fq.gz ${FILEPATH}/V350023490_L03_86_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L03_ACG69_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023490_L03_87_1.fq.gz ${FILEPATH}/V350023490_L03_88_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L03_ACG70_1.fq.gz	
+cat ${FILEPATH}/V350023490_L03_87_2.fq.gz ${FILEPATH}/V350023490_L03_88_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L03_ACG70_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023490_L01_89_1.fq.gz ${FILEPATH}/V350023490_L01_90_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L01_ACG71_1.fq.gz	
+cat ${FILEPATH}/V350023490_L01_89_2.fq.gz ${FILEPATH}/V350023490_L01_90_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L01_ACG71_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023490_L01_91_1.fq.gz ${FILEPATH}/V350023490_L01_92_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L01_ACG72_1.fq.gz	
+cat ${FILEPATH}/V350023490_L01_91_2.fq.gz ${FILEPATH}/V350023490_L01_92_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L01_ACG72_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023490_L01_93_1.fq.gz ${FILEPATH}/V350023490_L01_94_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L01_ACG73_1.fq.gz	
+cat ${FILEPATH}/V350023490_L01_93_2.fq.gz ${FILEPATH}/V350023490_L01_94_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L01_ACG73_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023490_L01_95_1.fq.gz ${FILEPATH}/V350023490_L01_96_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L01_ACG74_1.fq.gz	
+cat ${FILEPATH}/V350023490_L01_95_2.fq.gz ${FILEPATH}/V350023490_L01_96_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L01_ACG74_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023490_L02_97_1.fq.gz ${FILEPATH}/V350023490_L02_98_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L02_ACG59_1.fq.gz	
+cat ${FILEPATH}/V350023490_L02_97_2.fq.gz ${FILEPATH}/V350023490_L02_98_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L02_ACG59_2.fq.gz	
+
+
+
+cat ${FILEPATH}/V350023490_L02_99_1.fq.gz ${FILEPATH}/V350023490_L02_100_1.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L02_ACG60_1.fq.gz	
+cat ${FILEPATH}/V350023490_L02_99_2.fq.gz ${FILEPATH}/V350023490_L02_100_2.fq.gz > ${FILEPATH}/starpfaili/combined/V350023490_L02_ACG60_2.fq.gz	
+
