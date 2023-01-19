@@ -49,6 +49,7 @@ if [ -z "$FILEPATH" ]; then
     exit 1
 fi
 
+echo "File directory $FILEPATH"
 
 for SAMPLE in $(ls ${FILEPATH}/*.fq.gz)
 do
