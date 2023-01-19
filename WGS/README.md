@@ -16,6 +16,13 @@ Analysis was done on RTU HPC that uses Cent OS and Torque resource maneger.
 
 ### Pipeline
 
+![PreProcessing](docs/preProcessing.png)
+
+![Mapping]()
+
+![Variant Calling]()
+
+![Results]()
 
 
 ## Files
