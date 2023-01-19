@@ -1,5 +1,9 @@
 # Variant Calling using short read sequences against reference
 
+Author: Edgars Liepa  
+email: edgars.liepa@biomed.lu.lv  
+Latvian Biomedical Research and Study Center  
+
 # !!! Important
 
 Scripts have defind static file and dependency paths. If you are planing to use any of scripts at this development stage 
@@ -18,7 +22,7 @@ Analysis was done on RTU HPC that uses Cent OS and Torque resource maneger.
 
 ![PreProcessing](docs/preProcessing.png)
 
-![Mapping]()
+![Mapping](docs/mapping.png)
 
 ![Variant Calling]()
 
@@ -77,9 +81,14 @@ WGS_raw_pipeline.sh
 ## TODO
 
 - [ ] Results folder where analysis main results are compiled would be nice.
+    - [X] Create results and temporary file folders
+    - [ ] Make sure that all in scripts paths are leading to results folder
 - [ ] Describe analysis pipeline
+    - [ ] Create a pipiline describing diagrams
+    - [ ] Describe how to use scripts
+    - [ ] Describe result files generated
+    - [ ] Describe directory structure
 - [ ] Add all used programs
-
 - [ ] Should I configure file paths ass comand line passable arguments?? 
 or 
 - [ ] Should I specifically document that scripts needs to be edited If thats the case:. 
