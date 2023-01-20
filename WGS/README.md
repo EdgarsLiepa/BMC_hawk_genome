@@ -55,6 +55,8 @@ index_Reference.sh - index Reference sequence
 
 intervals.list - file for RGI #todo check content
 
+parseFASTQC.scv - Gather results from FASTQC result HTML files and create csv results file.
+
 raw_reads - folder with raw read data
 
 raw_reads/starpfaili - folder with intermidiate result files (BAM, SAM, VCF)
