@@ -60,7 +60,7 @@ def parse_fastqc(args, parser):
     df = pd.DataFrame(columns=statistics)
 
     for file in fastqc:
-        print(file)
+        print("Process: ", file)
         with open(file, "r") as f:
             # add sample name to df Sample Name collumn 
             sample = re.sub("_fastqc.html", "", file)
@@ -74,11 +74,11 @@ def parse_fastqc(args, parser):
             for link in soup.find(class_="summary").find_all("li"):
                 
                 rez = link.find("img").get("alt")
-                print(rez)
+                # print(rez)
                 
                 # find text in tag a and add it to tag
                 tag = link.find("a").text            
-                print(tag)
+                # print(tag)
                 
                 # add rez to tag column in df   
                 df.loc[df["Sample Name"] == sample,tag] = rez
@@ -93,7 +93,7 @@ def parse_fastqc(args, parser):
                 # if value non empty
                 if value:
                     # print(value)
-                    print(value[1].text)
+                    # print(value[1].text)
                     # add value to df row with Sample name column value sample and row value[0]
                     df.loc[df["Sample Name"] == sample, value[0].text] = value[1].text
 
@@ -128,6 +128,11 @@ def main():
     print(args.path)
     print(args.csv)
     parse_fastqc(args, parser)
+
+    if not args.csv:
+        print("Done \nResults are saved in {} resultsFASTQC.csv" .format(os.getcwd()))
+    else:
+        print("Done \nResults are saved in {}/resultsFASTQC.csv file" .format(args.path))
 
 
 if __name__ == "__main__":

@@ -28,7 +28,7 @@
 
 
 # Path to bam file
-FPATH='/home_beegfs/edgars01/Ineta/WGS/starpfaili/combine_broken/mapped_parallel'
+FPATH='/home_beegfs/edgars01/Ineta/WGS/starpfaili/mappedBAMandSAM'
 #hg19 references genoms
 HG19FASTAPATH='/home_beegfs/edgars01/Ineta/WGS/GosHawkReference-ncbi-genomes-2022-07-05/GCA_929443795.1_bAccGen1.1_genomic.fna'
 #Temporary dir
@@ -75,7 +75,6 @@ singularity run \
 
 if test -f "${FPATH}/vanagi.joint.genotype.full.output.vcf.gz"; then
     echo "VCF file ${FPATH}/vanagi.joint.genotype.full.output.vcf.gz exported"
-fi
 else
     echo "Result file not found at ${FPATH}/"
 fi

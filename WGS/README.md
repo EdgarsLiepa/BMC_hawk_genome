@@ -16,7 +16,7 @@ Assembly of Goshawk genome against reference sequence bAccGen1.1 from short read
 Analysis was done on RTU HPC that uses Cent OS and Torque resource maneger. 
 
 **Reference used** - [bAccGen1.1](https://www.ncbi.nlm.nih.gov/assembly/GCF_929443795.1/) 
-
+x§x
 
 ### Pipeline
 
@@ -62,6 +62,8 @@ raw_reads - folder with raw read data
 raw_reads/starpfaili - folder with intermidiate result files (BAM, SAM, VCF)
 
 samT_stats.sh - gather statistics with *samtools satats* program
+
+vcf_filtering.sh - filter chromosomes, low deapth and quality. Create statistics. 
 
 qualimap.sh - create BAM file statistics using *qualimap bamqc*
 
