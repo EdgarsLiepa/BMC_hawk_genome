@@ -51,7 +51,21 @@ makeDB.sh - create Genomcs DB from VCF files
 
 mapping.sh - map reads to reference, m ate coordinates, sort, index, mark duplicates, calculate deapth, index and call haplotypes. 
 
-index_Reference.sh - index Reference sequence
+index_reference.sh - index fasta Reference sequence
+
+Provide path to refence fasta file without file extension
+
+~~~
+
+REFERENCE - path to reference file without extension name
+
+# submit job using qsub Torque Resource/Queue Manager
+
+qsub -v REFERENCE="../path_to_reference_files" <Path_to_script_directory>/index_reference.sh"
+
+qsub -v REFERENCE="/home_beegfs/edgars01/Ineta/WGS/GosHawkReference-ncbi-genomes-2022-07-05_test/GCA_929443795.1_bAccGen1.1_genomic"  /home_beegfs/edgars01/Ineta/WGS/index_reference.sh
+
+~~~
 
 intervals.list - file for RGI #todo check content
 
@@ -84,9 +98,12 @@ WGS_raw_pipeline.sh
 
 ## TODO
 
+- Should script commands be documented to be run with qsub??
+    - Make seperate branches for HPC and standart shell commands 
 - [ ] Results folder where analysis main results are compiled would be nice.
     - [X] Create results and temporary file folders
     - [ ] Make sure that all in scripts paths are leading to results folder
+- [ ] Create conda env and add all tools as external libs.
 - [ ] Describe analysis pipeline
     - [ ] Create a pipiline describing diagrams
     - [ ] Describe how to use scripts
@@ -94,9 +111,20 @@ WGS_raw_pipeline.sh
     - [ ] Describe directory structure
 - [ ] Add all used programs
 - [ ] Should I configure file paths ass comand line passable arguments?? 
-or 
-- [ ] Should I specifically document that scripts needs to be edited If thats the case:. 
-    - [ ] add empty argument fields.
-    - [ ] add before execution that all fields are set.
-    - [ ] Create relative paths for structural folders
-        - [ ] Set script location folder as current WORKDIR after job is sent.
+
+
+### For every script file check:
+
+1. Description Header
+2. Display job information
+3. Input handling 
+4. Error handling
+5. Programm paths
+6. File paths
+7. Script runs
+8. Output of resources used.
+9. Output messages.
+10. Added to documentation
+11. Added to git
+
+List of scripts verified:
