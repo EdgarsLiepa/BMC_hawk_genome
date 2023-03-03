@@ -51,19 +51,28 @@ makeDB.sh - create Genomcs DB from VCF files
 
 mapping.sh - map reads to reference, m ate coordinates, sort, index, mark duplicates, calculate deapth, index and call haplotypes. 
 
-index_reference.sh - index fasta Reference sequence
+prepare_reference.sh - index fasta Reference sequence and create sequence dictionary.
 
-Provide path to refence fasta file without file extension
+Provide path to refence fasta file.
+Acceptable extension names: .fasta, .fna, .ffn, .faa, .frn, .fa
 
 ~~~
 
-REFERENCE - path to reference file without extension name
+REFERENCE - path to reference file in fasta format.
+
+Acceptable file extension names: .fasta, .fna, .ffn, .faa, .frn, .fa
+
+# submit job using bash
+
+sh prepare_reference.sh -i /path_to_reference_files/ref.fasta
+
+sh prepare_reference.sh -i /home_beegfs/edgars01/Ineta/WGS/GosHawkReference-ncbi-genomes-2022-07-05_test/GCA_929443795.1_bAccGen1.1_genomic.fasta
 
 # submit job using qsub Torque Resource/Queue Manager
 
-qsub -v REFERENCE="../path_to_reference_files" <Path_to_script_directory>/index_reference.sh"
+qsub -F "-i ~/path_to_reference_files/ref.fasta" <Path_to_script>/index_reference.sh"
 
-qsub -v REFERENCE="/home_beegfs/edgars01/Ineta/WGS/GosHawkReference-ncbi-genomes-2022-07-05_test/GCA_929443795.1_bAccGen1.1_genomic"  /home_beegfs/edgars01/Ineta/WGS/index_reference.sh
+qsub -F "-i /home_beegfs/edgars01/Ineta/WGS/GosHawkReference-ncbi-genomes-2022-07-05_test/GCA_929443795.1_bAccGen1.1_genomic.fasta"  /home_beegfs/edgars01/Ineta/WGS/index_reference.sh
 
 ~~~
 
@@ -98,6 +107,9 @@ WGS_raw_pipeline.sh
 
 ## TODO
 
+- [ ] Ko darīt ar picard.jar?
+    - [ ] Kā norādīt skriptiem prog. atrašanās vietu?
+    - [ ] Izveidot skriptu kas uzģenerē shell files ar korektajām programmu un failu ceļiem.
 - Should script commands be documented to be run with qsub??
     - Make seperate branches for HPC and standart shell commands 
 - [ ] Results folder where analysis main results are compiled would be nice.
@@ -110,7 +122,8 @@ WGS_raw_pipeline.sh
     - [ ] Describe result files generated
     - [ ] Describe directory structure
 - [ ] Add all used programs
-- [ ] Should I configure file paths ass comand line passable arguments?? 
+- [ ] Should I configure file paths as comand line passable arguments?? 
+    - [ ] Move from envoirmental variables in qsub to cmd atguments
 
 
 ### For every script file check:
@@ -127,4 +140,6 @@ WGS_raw_pipeline.sh
 10. Added to documentation
 11. Added to git
 
-List of scripts verified:
+### List of verified scripts:
+
+prepare_reference.sh
