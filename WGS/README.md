@@ -16,11 +16,13 @@ Assembly of Goshawk genome against reference sequence bAccGen1.1 from short read
 Analysis was done on RTU HPC that uses Cent OS and Torque resource maneger. 
 
 **Reference used** - [bAccGen1.1](https://www.ncbi.nlm.nih.gov/assembly/GCF_929443795.1/) 
-x§x
 
 ### Pipeline
 
+#### [PreProcessing](docs/preprocess.md)
+
 ![PreProcessing](docs/preProcessing.png)
+
 
 ![Mapping](docs/mapping.png)
 
@@ -103,15 +105,13 @@ WGS_raw_pipeline.sh
     - bedtools genomecov
 - NVIDIA parabrics
 - vcfstats
+- vcftools
 - qualimap bamqc
 
 ## TODO
 
-- [ ] Ko darīt ar picard.jar?
-    - [ ] Kā norādīt skriptiem prog. atrašanās vietu?
-    - [ ] Izveidot skriptu kas uzģenerē shell files ar korektajām programmu un failu ceļiem.
-- Should script commands be documented to be run with qsub??
-    - Make seperate branches for HPC and standart shell commands 
+
+
 - [ ] Results folder where analysis main results are compiled would be nice.
     - [X] Create results and temporary file folders
     - [ ] Make sure that all in scripts paths are leading to results folder
@@ -124,7 +124,11 @@ WGS_raw_pipeline.sh
 - [ ] Add all used programs
 - [ ] Should I configure file paths as comand line passable arguments?? 
     - [ ] Move from envoirmental variables in qsub to cmd atguments
-
+- [ ] Kā norādīt skriptiem prog. atrašanās vietu?
+    - [ ] Picard
+    - [ ] added with load module
+        - [ ] VCFtolls.
+        - [ ] BCF tools
 
 ### For every script file check:
 

@@ -22,11 +22,11 @@
 # --- Date: 31.10.22
 
 #!/bin/bash
-#PBS -l nodes=wn61:ppn=20,mem=120G
+#PBS -l nodes=1:ppn=20,mem=120G
 #PBS -l walltime=320:59:59
 #PBS -q long
 #PBS -j oe
-#PBS -N map_reads_V350023385_L04
+#PBS -N map_reads_V300082518_L02_F78
 #PBS -A bmc_pl_bior_covid
 
  
@@ -62,7 +62,7 @@ echo Using ${NPROCS} processors across ${NNODES} nodes
 
 # -- Start processing -- #
 
-for f in $(ls ${FILEPATH}/V350023385_L04*_paired.fq.gz | sed -e 's/_F_paired.fq.gz//' | sed -e 's/_R_paired.fq.gz//'| sed -e 's/\/home_beegfs\/edgars01\/Ineta\/WGS\/starpfaili\/trimmed_sequences\///'  | sort -u)
+for f in $(ls ${FILEPATH}/V300082518_L02_F78*_paired.fq.gz | sed -e 's/_F_paired.fq.gz//' | sed -e 's/_R_paired.fq.gz//'| sed -e 's/\/home_beegfs\/edgars01\/Ineta\/WGS\/starpfaili\/trimmed_sequences\///'  | sort -u)
 do
 
 date

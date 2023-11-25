@@ -29,6 +29,7 @@
 
 # Path to bam file
 FPATH='/home_beegfs/edgars01/Ineta/WGS/starpfaili/mappedBAMandSAM'
+OUTPATH_VCF='/home_beegfs/edgars01/Ineta/WGS/starpfaili/sampleVCFs'
 #hg19 references genoms
 HG19FASTAPATH='/home_beegfs/edgars01/Ineta/WGS/GosHawkReference-ncbi-genomes-2022-07-05/GCA_929443795.1_bAccGen1.1_genomic.fna'
 #Temporary dir
@@ -70,13 +71,13 @@ singularity run \
     --ref $HG19FASTAPATH \
     --in-bam ${FPATH}/${SAMPLENAME}.markdup.fixedRG.bam \
     --gvcf \
-    --out-variants ${FPATH}/${SAMPLENAME}.genome.raw.snps.indels.gpu.g.vcf
+    --out-variants ${OUTPATH_VCF}/${SAMPLENAME}.genome.raw.snps.indels.g.vcf
 
 
-if test -f "${FPATH}/vanagi.joint.genotype.full.output.vcf.gz"; then
-    echo "VCF file ${FPATH}/vanagi.joint.genotype.full.output.vcf.gz exported"
+if test -f "${OUTPATH_VCF}/${SAMPLENAME}.genome.raw.snps.indels.g.vcf"; then
+    echo "VCF file ${OUTPATH_VCF}/${SAMPLENAME}.genome.raw.snps.indels.g.vcf exported"
 else
-    echo "Result file not found at ${FPATH}/"
+    echo "Result file not found at ${OUTPATH_VCF}/"
 fi
 
 date

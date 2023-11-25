@@ -109,9 +109,17 @@ samtools faidx $REFERENCE --fai-idx ${REFERENCE%.*}.fai
 echo ""
 echo "Create Sequence Dictionary with java -jar ${PICARD}"
 
+
+
+
 java -jar ${PICARD} CreateSequenceDictionary \
 -R $REFERENCE \
 -O ${REFERENCE%.*}.dict
+
+
+
+
+
 
 # if job is running on cluster should PBS_JOBID be non-empty
 # Compatible with qsub from Torque and PBSPro

@@ -18,7 +18,7 @@
 #!/bin/bash
 #PBS -N FASTQC_report
 #PBS -l procs=4
-#PBS -l walltime=45:00:00
+#PBS -l walltime=25:00:00
 #PBS -A bmc_pl_bior_covid
 #PBS -j oe
 
@@ -51,12 +51,12 @@ fi
 
 echo "File directory $FILEPATH"
 
-for SAMPLE in $(ls ${FILEPATH}/*.fq.gz)
+for SAMPLE in $(ls ${FILEPATH}/*_paired.fq.gz)
 do
 
 date
 echo "Analyze $SAMPLE"
-/home_beegfs/edgars01/tools/FastQC/fastqc --noextract --nogroup -o ${FILEPATH}/fastqc $SAMPLE
+/home_beegfs/edgars01/tools/FastQC/fastqc --noextract --nogroup -o ${FILEPATH}/fastqc_trimmedReads $SAMPLE
 
 done;
 
