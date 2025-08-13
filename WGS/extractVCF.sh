@@ -14,14 +14,15 @@
 # ---       
 # --- Author: Edgars Liepa edgars.liepa@biomed.lu.lv
 # --- Date: 19.10.22
+# --- Modified: 14-07-25
 
 
 #!/bin/bash
-#PBS -N Export_VanagiDB
-#PBS -l nodes=1:ppn=6,mem=100g
-#PBS -l walltime=329:59:59
-#PBS -A bmc_pl_bior_covid
-#PBS -W x=HOSTLIST:wn62,wn63,wn64
+#PBS -N Export_Vanagi
+#PBS -l nodes=1:ppn=12,mem=512g
+#PBS -l walltime=335:59:59
+#PBS -A bmc_flpp_2024_0109
+#PBS -W x=HOSTLIST:wn67,wn68,wn69,wn70
 #PBS -q long
 #PBS -j oe
  
@@ -31,25 +32,36 @@ date
 
 
 
-DBPATH='/home_beegfs/edgars01/Ineta/WGS/raw_reads/starpfaili/combine_broken/Vanagi_GenomicsDB'
-OUTPATH='/home_beegfs/edgars01/Ineta/WGS/raw_reads/starpfaili/combine_broken/GVCF_out'
 #hg19 references genoms
 HG19FASTAPATH='/home_beegfs/edgars01/Ineta/WGS/GosHawkReference-ncbi-genomes-2022-07-05/GCA_929443795.1_bAccGen1.1_genomic.fna'
-#Temporary dir
-TMP='/home_beegfs/groups/bmc/tmp/ditagu'
 
 
+SCRATCH=/scratch/$PBS_JOBID
+mkdir -m 700 $SCRATCH
+
+# copy data to scratch
+echo "Copy ref"
+cp "/mnt/beegfs2/home/edgars01/Ineta/WGS/GosHawkReference-ncbi-genomes-2022-07-05/GCA_929443795.1_bAccGen1.1_genomic.fna" $SCRATCH/GCA_929443795.1_bAccGen1.1_genomic.fna
+echo "Copy g.vcf"
+cp /home_beegfs/edgars01/Ineta/WGS/Results/CombinedVCF/vanagi_cohort.g.vcf.gz $SCRATCH/vanagi_cohort.g.vcf.gz
+
+
+date
+
+echo "run gatk"
 # export VCF from DB 
-/home_beegfs/edgars01/tools/gatk-4.2.6.1/gatk --java-options "-Xms2G -XX:ParallelGCThreads=8 -Djava.io.tmpdir=$TMP -DGATK_STACKTRACE_ON_USER_EXCEPTION=true" GenotypeGVCFs \
+/home_beegfs/edgars01/tools/gatk-4.2.6.1/gatk --java-options "-Xms20G -Xmx512G -XX:ParallelGCThreads=12 -Djava.io.tmpdir=$TMP -DGATK_STACKTRACE_ON_USER_EXCEPTION=true" GenotypeGVCFs \
 -R $HG19FASTAPATH \
--V gendb://${DBPATH} \
--O ${OUTPATH}/vanagi.joint.genotype.full.output.vcf.gz
+-V /home_beegfs/edgars01/Ineta/WGS/Results/CombinedVCF/vanagi_cohort.g.vcf.gz \
+-O $SCRATCH/vanagi_genotype.vcf \
+--tmp-dir $SCRATCH 
+
+cp -r $SCRATCH/vanagi_genotype.vcf $HOME/Ineta/WGS/Results/CombinedVCF/
+rm -rf $SCRATCH
 
 
-
-
-if test -f "${OUTPATH}/vanagi.joint.genotype.full.output.vcf.gz"; then
-    echo "VCF file ${OUTPATH}/vanagi.joint.genotype.full.output.vcf.gz exported"
+if test -f "$HOME/Ineta/WGS/Results/CombinedVCF/vanagi_genotype.vcf"; then
+    echo "VCF file $HOME/Ineta/WGS/Results/CombinedVCF/vanagi_genotype.vcf exported"
 fi
 
 date

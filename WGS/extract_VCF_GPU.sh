@@ -13,14 +13,20 @@
 # ---       
 # --- Author: Edgars Liepa edgars.liepa@biomed.lu.lv
 # --- Date: 30.11.22
+# --- Modified: 26.06.25
 
 
 #!/bin/bash
-#PBS -N Export_VanagiVCF_GPU
-#PBS -l nodes=1:ppn=6:gpus=2,mem=100G
-#PBS -l walltime=20:59:59
-#PBS -A bmc_pl_bior_covid
+#PBS -N Export_VCF_GPU
+#PBS -l nodes=1:ppn=32:gpus=2,mem=512G
+#PBS -l feature=l40s
+#PBS -q long
+#PBS -l walltime=320:59:59
+#PBS -A bmc_flpp_2022_0299
 #PBS -j oe
+
+cd $PBS_O_WORKDIR
+
 
 cat /proc/meminfo | grep MemTotal
 cat /proc/cpuinfo | grep processor | wc -l
@@ -36,32 +42,33 @@ echo "---------------------"
 echo Using ${NPROCS} processors across ${NNODES} nodes
 
     
-echo "Export VCF file from GenomicsDB with v100 GPU and 6 cores"
+echo "Export VCF file from GenomicsDB with L40 GPU and 32 cores"
 date
 
 module load singularity
-module load cuda
+module load cuda/cuda-12.4 
 
 
-DBPATH='/home_beegfs/edgars01/Ineta/WGS/CombinedGVCFs_Vanagi'
-OUTPATH='/home_beegfs/edgars01/Ineta/WGS/VCF_ALL_GPU'
-#hg19 references genoms
+nvidia-smi
+
+DBPATH='/home_beegfs/edgars01/Ineta/WGS/Results/CombinedVCF'
+# OUTPATH='/home_beegfs/edgars01/Ineta/WGS/Results/CombinedVCF'
+
 HG19FASTAPATH='/home_beegfs/edgars01/Ineta/WGS/GosHawkReference-ncbi-genomes-2022-07-05/GCA_929443795.1_bAccGen1.1_genomic.fna'
-#Temporary dir
-TMP='/home_beegfs/groups/bmc/tmp/ditagu'
 
 # export VCF from DB 
 singularity run \
     --nv \
-    /mnt/beegfs2/home/groups/bmc/test_parabricks/clara-parabricks_4.0.0-1.sif \
+    /home_beegfs/edgars01/tools/singularity_containers/clara-parabricks_4.4.0-1.sif \
     pbrun genotypegvcf \
+    --num-threads 32 \
     --ref $HG19FASTAPATH \
     --in-gvcf ${DBPATH}/vanagi_cohort.g.vcf.gz \
-    --out-vcf ${OUTPATH}/vanagi.joint.genotype.full.output_8_12.vcf.gz
+    --out-vcf ${DBPATH}/vanagi_26_06_25.vcf
 
 
-if test -f "${OUTPATH}/vanagi.joint.genotype.full.output.vcf.gz"; then
-    echo "VCF file ${OUTPATH}/vanagi.joint.genotype.full.output.vcf.gz exported"
+if test -f "${DBPATH}/vanagi_26_06_25.vcf.gz"; then
+    echo "VCF file ${DBPATH}/vanagi_26_06_25.vcf.gz created"
 fi
 
 date

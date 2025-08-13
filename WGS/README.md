@@ -87,8 +87,14 @@ raw_reads - folder with raw read data
 raw_reads/starpfaili - folder with intermidiate result files (BAM, SAM, VCF)
 
 samT_stats.sh - gather statistics with *samtools satats* program
+- INSAM='WGS/starpfaili/mappedBAMandSAM'
+- OUTPATH='WGS/Results/sam_stat'
 
 vcf_filtering.sh - filter chromosomes, low deapth and quality. Create statistics. 
+- VCF=WGS/starpfaili/sampleVCFs
+- OUT=WGS/starpfaili/filtered_Sample_VCFs
+- REZ=WGS/Results/bcfTools
+
 
 qualimap.sh - create BAM file statistics using *qualimap bamqc*
 
